@@ -11,7 +11,11 @@ var three = document.getElementById('3');
 var four = document.getElementById('4');
 var five = document.getElementById('5');
 
-var nineTask = nine.textContent;
+var nineTask = {
+    p: nine.innerText
+};
+
+var nineTask_ser = JSON.stringify(nineTask);
 
 document.getElementById("current-day").textContent =
   currentDate.format("dddd MMMM Do");
@@ -21,7 +25,8 @@ var loadTasks = function () {
 }
 
 var saveTasks = function () {
-    
+    localStorage.setItem("nineTask", nineTask_ser);
+    console.log(localStorage);
 }
 
 $(".btn").on("click", function () {
