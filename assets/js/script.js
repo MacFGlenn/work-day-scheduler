@@ -11,8 +11,35 @@ var three = document.getElementById('3');
 var four = document.getElementById('4');
 var five = document.getElementById('5');
 
+var nineTask = nine.textContent;
+
 document.getElementById("current-day").textContent =
   currentDate.format("dddd MMMM Do");
+
+var loadTasks = function () {
+    
+}
+
+var saveTasks = function () {
+    
+}
+
+$(".btn").on("click", function () {
+    saveTasks();
+})
+
+$(".text").on("click", "p", function () {
+    var text = $(this).text().trim();
+    var textInput = $("<textarea>").addClass("form-control").val(text);
+    $(this).replaceWith(textInput);
+    textInput.trigger("focus");
+})
+
+$(".text").on("blur", "textarea", function () {
+    var text = $(this).val().trim();
+    var taskP = $("<p>").addClass("m-1").text(text);
+    $(this).replaceWith(taskP);
+})
 
 function checkNine(event) {
     // check if hour is before current 9AM
@@ -149,6 +176,7 @@ function checkFive(event) {
     }
 };
 
+loadTasks();
 checkNine(nine);
 checkTen(ten);
 checkEleven(eleven);
